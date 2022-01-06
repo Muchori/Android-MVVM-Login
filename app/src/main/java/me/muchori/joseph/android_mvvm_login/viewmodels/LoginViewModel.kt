@@ -1,0 +1,65 @@
+package me.muchori.joseph.android_mvvm_login.viewmodels
+
+import android.app.Application
+import android.util.Log
+import androidx.databinding.ObservableBoolean
+import androidx.databinding.ObservableField
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.MutableLiveData
+import me.muchori.joseph.android_mvvm_login.model.Data
+import me.muchori.joseph.android_mvvm_login.model.User
+import me.muchori.joseph.android_mvvm_login.network.UserApi
+import me.muchori.joseph.android_mvvm_login.network.WebServiceClient
+import me.muchori.joseph.android_mvvm_login.util.SingleLiveEvent
+import me.muchori.joseph.android_mvvm_login.util.Util
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
+class LoginViewModel(
+    application: Application
+) : AndroidViewModel(application), Callback<User> {
+    var btnSelected: ObservableBoolean? = null
+    var email: ObservableField<String>? = null
+    var password: ObservableField<String>? = null
+    var progressDialog: SingleLiveEvent<Boolean>? = null
+    var userLogin: MutableLiveData<User>? = null
+
+    init {
+        btnSelected = ObservableBoolean(false)
+        progressDialog = SingleLiveEvent<Boolean>()
+        email = ObservableField("")
+        password = ObservableField("")
+        userLogin = MutableLiveData<User>()
+    }
+    fun onEmailChanged(s: CharSequence, start: Int, befor: Int, count: Int) {
+        btnSelected?.set(Util.isEmailValid(s.toString()) && password?.get()!!.length >= 4)
+    }
+    fun onPasswordChanged(s: CharSequence, start: Int, befor: Int, count: Int) {
+        btnSelected?.set(Util.isEmailValid(email?.get()!!) && s.toString().length >= 4)
+    }
+    fun login() {
+        progressDialog?.value = true
+        WebServiceClient.client.create(UserApi::class.java)
+            .login(email = email?.get()!!, password = password?.get()!!)
+            .enqueue(this)
+    }
+    override fun onResponse(call: Call<User>?, response: Response<User>?) {
+        progressDialog?.value = false
+        if(response!!.isSuccessful){
+            try {
+                userLogin?.value = response.body()
+                Log.d("ResponseBody ", response.body().toString())
+            }
+            catch (e: Exception){
+            }
+        } else{
+//            userLogin?.value = response.errorBody()
+        }
+
+
+    }
+    override fun onFailure(call: Call<User>?, t: Throwable?) {
+        progressDialog?.value = false
+    }
+}

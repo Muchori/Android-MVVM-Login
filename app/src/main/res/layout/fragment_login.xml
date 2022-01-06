@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="me.muchori.joseph.android_mvvm_login.viewmodels.LoginViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp"
+        tools:context=".fragments.LoginFragment">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Login to continue"
+            android:textColor="@color/purple_200"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="20sp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/loginLottie"
+            app:layout_constraintStart_toStartOf="@+id/passwordLayout" />
+
+        <ImageView
+            android:id="@+id/loginLottie"
+            android:layout_width="306dp"
+            android:layout_height="235dp"
+            android:layout_marginTop="90dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/ic_directions"
+            app:layout_constraintBottom_toTopOf="@+id/emailLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btn_login"
+            style="@style/ButtonPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginTop="150dp"
+            android:enabled="@{viewmodel.btnSelected}"
+            android:onClick="@{() -> viewmodel.login()}"
+            android:text="Login"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.795" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="150dp"
+            android:baselineAligned="false"
+            android:fontFamily="@font/roboto_regular"
+            android:hint="Email"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_email"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:imeOptions="actionNext"
+                android:onTextChanged="@{viewmodel::onEmailChanged}"
+                android:text="@={viewmodel.email}"
+                android:fontFamily="@font/roboto_medium"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordLayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:baselineAligned="false"
+            android:fontFamily="@font/roboto_medium"
+            android:hint="Password"
+            app:layout_constraintEnd_toEndOf="@+id/emailLayout"
+            app:layout_constraintStart_toStartOf="@+id/emailLayout"
+            app:layout_constraintTop_toBottomOf="@+id/emailLayout"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/text_password"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:textColor="@color/black"
+                android:imeOptions="actionDone"
+                android:onTextChanged="@{viewmodel::onPasswordChanged}"
+                android:text="@={viewmodel.password}"
+                android:fontFamily="@font/roboto_regular"
+                android:inputType="textPassword"
+                android:textSize="16sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
