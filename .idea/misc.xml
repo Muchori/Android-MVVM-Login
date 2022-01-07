@@ -9,11 +9,12 @@
         <entry key="app/src/main/res/drawable-v24/ic_clock.xml" value="0.20974358974358975" />
         <entry key="app/src/main/res/drawable-v24/ic_directions.xml" value="0.21302083333333333" />
         <entry key="app/src/main/res/drawable/ic_progress.xml" value="0.21302083333333333" />
-        <entry key="app/src/main/res/layout/activity_home.xml" value="0.196875" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.196875" />
         <entry key="app/src/main/res/layout/dialog_progess.xml" value="0.196875" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.196875" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.196875" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.16111111111111112" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.196875" />
       </map>
     </option>

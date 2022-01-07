@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.fragments
+package me.muchori.joseph.android_mvvm_login.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

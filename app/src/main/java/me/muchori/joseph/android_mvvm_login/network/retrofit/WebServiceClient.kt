@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.network
+package me.muchori.joseph.android_mvvm_login.network.retrofit
 
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -24,7 +24,7 @@ object WebServiceClient {
 
             if (retrofit == null) {
                 retrofit = Retrofit.Builder()
-                    .baseUrl("https://zigo-couriers.herokuapp.com/api/v1/")
+                    .baseUrl("https://zigo-couriers.herokuapp.com/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .client(okHttpClient)
                     .build()

@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.viewmodels
+package me.muchori.joseph.android_mvvm_login.viewmodels.auth
 
 import android.app.Application
 import android.util.Log
@@ -6,9 +6,14 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.asLiveData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import me.muchori.joseph.android_mvvm_login.model.user.User
-import me.muchori.joseph.android_mvvm_login.network.UserApi
-import me.muchori.joseph.android_mvvm_login.network.WebServiceClient
+import me.muchori.joseph.android_mvvm_login.network.retrofit.WebServiceClient
+import me.muchori.joseph.android_mvvm_login.network.api.LoginApi
+import me.muchori.joseph.android_mvvm_login.repository.DataStoreRepository
 import me.muchori.joseph.android_mvvm_login.util.SingleLiveEvent
 import me.muchori.joseph.android_mvvm_login.util.Util
 import retrofit2.Call
@@ -24,12 +29,24 @@ class LoginViewModel(
     var progressDialog: SingleLiveEvent<Boolean>? = null
     var userLogin: MutableLiveData<User>? = null
 
+    private val repository = DataStoreRepository(application)
+    val readFromDataStore = repository.readIdFromDataStore.asLiveData()
+
+
     init {
         btnSelected = ObservableBoolean(false)
         progressDialog = SingleLiveEvent<Boolean>()
         email = ObservableField("")
         password = ObservableField("")
         userLogin = MutableLiveData<User>()
+    }
+
+    fun saveRefreshToken(refresh_token: String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.saveRefreshToken(refresh_token)
+    }
+
+    fun saveToDataStore(id: String) = viewModelScope.launch(Dispatchers.IO){
+        repository.saveToDataStore(id)
     }
     fun onEmailChanged(s: CharSequence, start: Int, befor: Int, count: Int) {
         btnSelected?.set(Util.isEmailValid(s.toString()) && password?.get()!!.length >= 4)
@@ -39,7 +56,7 @@ class LoginViewModel(
     }
     fun login() {
         progressDialog?.value = true
-        WebServiceClient.client.create(UserApi::class.java)
+        WebServiceClient.client.create(LoginApi::class.java)
             .login(email = email?.get()!!, password = password?.get()!!)
             .enqueue(this)
     }
@@ -53,10 +70,7 @@ class LoginViewModel(
             catch (e: Exception){
             }
         } else{
-//            userLogin?.value = response.errorBody()
         }
-
-
     }
     override fun onFailure(call: Call<User>?, t: Throwable?) {
         progressDialog?.value = false
