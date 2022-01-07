@@ -1,5 +1,6 @@
 package me.muchori.joseph.android_mvvm_login.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import me.muchori.joseph.android_mvvm_login.HomeActivity
 import me.muchori.joseph.android_mvvm_login.R
 import me.muchori.joseph.android_mvvm_login.databinding.FragmentLoginBinding
 import me.muchori.joseph.android_mvvm_login.util.CustomeProgressDialog
@@ -39,6 +42,7 @@ class LoginFragment : Fragment() {
             if (it!!) customeProgressDialog?.show() else customeProgressDialog?.dismiss()
         })
         viewmodel?.userLogin?.observe(viewLifecycleOwner, Observer { user ->
+            startActivity(Intent(requireActivity(), HomeActivity::class.java))
             Toast.makeText(requireContext(), "Welcome, " + user.data.user.firstName + user.data.payload.accessToken, Toast.LENGTH_LONG).show()
         })
     }

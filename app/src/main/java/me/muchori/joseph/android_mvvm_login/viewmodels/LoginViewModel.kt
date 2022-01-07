@@ -6,8 +6,7 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import me.muchori.joseph.android_mvvm_login.model.Data
-import me.muchori.joseph.android_mvvm_login.model.User
+import me.muchori.joseph.android_mvvm_login.model.user.User
 import me.muchori.joseph.android_mvvm_login.network.UserApi
 import me.muchori.joseph.android_mvvm_login.network.WebServiceClient
 import me.muchori.joseph.android_mvvm_login.util.SingleLiveEvent

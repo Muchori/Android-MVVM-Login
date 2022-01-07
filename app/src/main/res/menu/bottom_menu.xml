@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/homeFragment"
+        android:icon="@drawable/ic_grid"
+        android:title="Home"
+        android:checked="true"
+        android:color="@color/home" />
+    <item
+        android:id="@+id/dropPointsFragment"
+        android:icon="@drawable/ic_clock"
+        android:title="Drop Points"
+        android:color="@color/logger" />
+    <item
+        android:id="@+id/walletFragment"
+        android:icon="@drawable/ic_folder"
+        android:color="@color/documents"
+        android:title="Documents" />
+    <item
+        android:id="@+id/profileFragment"
+        android:icon="@drawable/ic_android_black_24dp_rotated"
+        android:color="@color/settings"
+        android:title="Settings" />
+</menu>
