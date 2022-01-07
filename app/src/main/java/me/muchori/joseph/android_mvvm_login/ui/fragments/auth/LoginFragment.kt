@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.fragments
+package me.muchori.joseph.android_mvvm_login.ui.fragments.auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,13 +9,10 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelProviders
-import androidx.navigation.fragment.findNavController
-import me.muchori.joseph.android_mvvm_login.HomeActivity
-import me.muchori.joseph.android_mvvm_login.R
+import me.muchori.joseph.android_mvvm_login.ui.HomeActivity
 import me.muchori.joseph.android_mvvm_login.databinding.FragmentLoginBinding
 import me.muchori.joseph.android_mvvm_login.util.CustomeProgressDialog
-import me.muchori.joseph.android_mvvm_login.viewmodels.LoginViewModel
+import me.muchori.joseph.android_mvvm_login.viewmodels.auth.LoginViewModel
 
 
 class LoginFragment : Fragment() {
@@ -43,6 +40,8 @@ class LoginFragment : Fragment() {
         })
         viewmodel?.userLogin?.observe(viewLifecycleOwner, Observer { user ->
             startActivity(Intent(requireActivity(), HomeActivity::class.java))
+            viewmodel!!.saveToDataStore(user.data.user.id)
+            viewmodel!!.saveRefreshToken(user.data.payload.refreshToken)
             Toast.makeText(requireContext(), "Welcome, " + user.data.user.firstName + user.data.payload.accessToken, Toast.LENGTH_LONG).show()
         })
     }

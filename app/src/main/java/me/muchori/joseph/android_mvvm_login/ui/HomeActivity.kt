@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login
+package me.muchori.joseph.android_mvvm_login.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,6 +6,7 @@ import android.widget.PopupMenu
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupActionBarWithNavController
+import me.muchori.joseph.android_mvvm_login.R
 import me.muchori.joseph.android_mvvm_login.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {

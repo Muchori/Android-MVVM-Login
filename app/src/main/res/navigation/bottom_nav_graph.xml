@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="me.muchori.joseph.android_mvvm_login.fragments.HomeFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/dropPointsFragment"
-        android:name="me.muchori.joseph.android_mvvm_login.fragments.DropPointsFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.DropPointsFragment"
         android:label="fragment_drop_points"
         tools:layout="@layout/fragment_drop_points" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/walletFragment"
-        android:name="me.muchori.joseph.android_mvvm_login.fragments.WalletFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.WalletFragment"
         android:label="fragment_wallet"
         tools:layout="@layout/fragment_wallet" >
         <action
@@ -34,7 +34,7 @@
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="me.muchori.joseph.android_mvvm_login.fragments.ProfileFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
 </navigation>
