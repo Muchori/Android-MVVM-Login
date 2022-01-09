@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/promptFragment">
 
     <fragment
         android:id="@+id/loginFragment"
         android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.auth.LoginFragment"
-        android:label="fragment_login"
-        tools:layout="@layout/fragment_login" >
+        android:label=""
+        tools:layout="@layout/fragment_login">
         <action
             android:id="@+id/action_loginFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
@@ -17,6 +17,23 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.HomeFragment"
-        android:label="fragment_home"
+        android:label="Home"
         tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/promptFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.auth.PromptFragment"
+        android:label="fragment_prompt"
+        tools:layout="@layout/fragment_prompt">
+        <action
+            android:id="@+id/action_promptFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_promptFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.auth.RegisterFragment"
+        android:label="fragment_register"
+        tools:layout="@layout/fragment_register" />
 </navigation>

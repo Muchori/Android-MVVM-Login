@@ -1,7 +1,7 @@
 package me.muchori.joseph.android_mvvm_login.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import me.muchori.joseph.android_mvvm_login.R
 
 class MainActivity : AppCompatActivity() {

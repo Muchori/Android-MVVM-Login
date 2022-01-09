@@ -2,4 +2,36 @@
     <string name="app_name">Android-MVVM-Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--    OnBoarding strings-->
+    <string name="onboarding_slide1_subtitle">Connect with people around the world</string>
+    <string name="onboarding_slide1_desc">We deliver quality services all round</string>
+
+    <string name="onboarding_slide2_subtitle">Let\'s build connection with new people</string>
+    <string name="onboarding_slide2_desc">Deliver customers around you who
+        are closest from your home.</string>
+
+    <string name="onboarding_slide3_subtitle">Feel the happiness shipping with us</string>
+    <string name="onboarding_slide3_desc">We assure of security </string>
+
+    <string name="get_started">Get Started</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="zigo_couriers_rider">Zigo Couriers: Rider</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="login_below_to_proceed">Login below to proceed</string>
+    <string name="welcome">Welcome</string>
+    <string name="don_t_have_an_account_register">Don\'t have an account? </string>
+    <string name="register_nyour_account">Register\nYour Account</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="gender">Gender</string>
+    <string name="male">Male</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="already_have_an_account">Already have an account?</string>
 </resources>

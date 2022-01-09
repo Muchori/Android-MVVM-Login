@@ -1,12 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#03A9FA</color>
-    <color name="purple_700">#03A9FA</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="primary_blue">#03A9FA</color>
-    <color name="secondary_blue">#03A9F4</color>
+    <color name="colorPurple">#1EB5EB</color>
+    <color name="colorIndigo">#0B6383</color>
+    <color name="colorBlueMidnight">#0B6383</color>
+    <color name="colorGrey">#C9C9C9</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorPrimary">#1EB5EB</color>
+    <color name="colorPrimaryDark">#0B6383</color>
+    <color name="colorBlack">#050401</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="hint_color">#979797</color>
+    <color name="card_bg">#222831</color>
+    <color name="background">#121212</color>
+    <color name="title_text_color">#f2f2f2</color>
+    <color name="note_text_color">#f2f2f2</color>
+    <color name="Silver">#C0C0C0</color>
+    <color name="blue">#0085FF</color>
+    <color name="bluez">#3399FF</color>
+    <color name="blue60">#4D0085FF</color>
+    <color name="green60">#4d4CAF50</color>
+    <color name="bluean">#4d03A9F4</color>
+    <color name="bluean1">#03A9F4</color>
+    <color name="purple60">#4d673AB7</color>
+    <color name="lightBlue">#1403A9F4</color>
 </resources>
+
