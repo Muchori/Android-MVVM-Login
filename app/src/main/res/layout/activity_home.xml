@@ -24,7 +24,7 @@
             android:id="@+id/bottomBar"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            app:backgroundColor="@color/primary_blue"
+            app:backgroundColor="@color/colorPrimary"
             app:iconSize="26dp"
             app:iconTint="#C8FFFFFF"
             app:iconTintActive="#FFFFFF"

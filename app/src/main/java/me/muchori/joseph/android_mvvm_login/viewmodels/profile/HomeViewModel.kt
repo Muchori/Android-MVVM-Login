@@ -1,9 +1,11 @@
 package me.muchori.joseph.android_mvvm_login.viewmodels.profile
 
-import androidx.lifecycle.*
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
-import me.muchori.joseph.android_mvvm_login.repository.UserRepository
 import me.muchori.joseph.android_mvvm_login.model.user.User
+import me.muchori.joseph.android_mvvm_login.repository.UserRepository
 import retrofit2.Response
 
 class HomeViewModel(private val repository: UserRepository) : ViewModel() {
@@ -16,8 +18,4 @@ class HomeViewModel(private val repository: UserRepository) : ViewModel() {
             userResponse.value = response
         }
     }
-
-//    suspend fun saveId(id: String){
-//        repository.saveId(id)
-//    }
 }
