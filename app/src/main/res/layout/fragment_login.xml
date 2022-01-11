@@ -16,7 +16,7 @@
         android:layout_marginTop="120dp"
         android:layout_marginRight="24dp"
         android:layout_marginBottom="24dp"
-        tools:context=".ui.fragments.auth.LoginFragment">
+        tools:context=".ui.fragments.auth.login.LoginFragment">
 
         <ScrollView
             android:id="@+id/scrollView2"
@@ -192,7 +192,7 @@
                     android:textSize="14sp" />
 
                 <TextView
-                    android:id="@+id/login_register"
+                    android:id="@+id/register_login"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="bottom"

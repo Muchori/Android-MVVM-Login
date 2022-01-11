@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.repository
+package me.muchori.joseph.android_mvvm_login.repository.userRepository
 
 import android.content.Context
 import android.util.Log

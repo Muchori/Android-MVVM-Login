@@ -10,12 +10,13 @@ import me.muchori.joseph.android_mvvm_login.R
 import me.muchori.joseph.android_mvvm_login.databinding.FragmentPromptBinding
 
 class PromptFragment : Fragment() {
-    private lateinit var binding: FragmentPromptBinding
+    private var _binding: FragmentPromptBinding? = null
+    private val binding get() = _binding!!
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentPromptBinding.inflate(inflater, container, false)
+        _binding = FragmentPromptBinding.inflate(inflater, container, false)
 
         binding.login.setOnClickListener {
             findNavController().navigate(R.id.action_promptFragment_to_loginFragment)

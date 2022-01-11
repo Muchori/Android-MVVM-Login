@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.repository
+package me.muchori.joseph.android_mvvm_login.repository.onboarding
 
 import android.content.Context
 import android.content.SharedPreferences

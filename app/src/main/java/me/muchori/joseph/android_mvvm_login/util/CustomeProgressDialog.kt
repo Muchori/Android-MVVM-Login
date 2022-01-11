@@ -8,7 +8,7 @@ import android.view.animation.RotateAnimation
 import kotlinx.android.synthetic.main.dialog_progess.*
 import me.muchori.joseph.android_mvvm_login.R
 
-class CustomeProgressDialog(context: Context?) : Dialog(context!!) {
+class CustomProgressDialog(context: Context?) : Dialog(context!!) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

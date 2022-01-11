@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-android-extensions'
     id "androidx.navigation.safeargs.kotlin"
     id 'dagger.hilt.android.plugin'
+    id "com.google.protobuf" version "0.8.17"
 }
 
 android {
@@ -61,6 +62,9 @@ dependencies {
     //stepper
     implementation "com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2"
 
+    //pinview otp
+    implementation 'com.github.GoodieBag:Pinview:v1.4'
+
     //logging interceptors
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
 
@@ -86,8 +90,12 @@ dependencies {
     kapt "com.android.databinding:compiler:3.2.0-alpha10"
     kapt "androidx.databinding:databinding-common:7.0.4"
 
-    // DataStore
+    // Preferences DataStore
     implementation "androidx.datastore:datastore-preferences:1.0.0-alpha01"
+
+    //Proto DataStore
+    implementation  "androidx.datastore:datastore-core:1.0.0-alpha01"
+    implementation  "com.google.protobuf:protobuf-javalite:3.10.0"
 
     // Recyclerview
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
@@ -135,4 +143,19 @@ dependencies {
 
     //splash screen
     implementation 'androidx.core:core-splashscreen:1.0.0-alpha01'
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.14.0"
+    }
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
 }
