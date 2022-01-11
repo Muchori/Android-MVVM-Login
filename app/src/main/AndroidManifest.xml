@@ -22,9 +22,9 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.fragments.home.HomeActivity"
             android:exported="true"
-            android:theme="@style/Theme.AndroidMVVMLogin">
+            android:theme="@style/AppTheme.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

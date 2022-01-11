@@ -34,4 +34,16 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="forgot_password">Forgot Password?</string>
     <string name="already_have_an_account">Already have an account?</string>
+    <string name="home">Home</string>
+    <string name="personal_data">Personal Data</string>
+    <string name="zigo_rider">Zigo Rider</string>
+    <string name="settings">Settings</string>
+    <string name="wallet">Wallet</string>
+    <string name="referal_code">Referal Code</string>
+    <string name="e_statements">E-Statements</string>
+    <string name="logout">Logout</string>
+    <string name="rider">Rider</string>
+    <string name="update_details">Update Details</string>
+    <string name="we_will_send_you_a_one_time_password_otp_in_your_phone_number_for_verification">We will send you a One Time Password (OTP) in your phone number for verification</string>
+    <string name="please_enter_your_phone_number_below">Please Enter your phone number below</string>
 </resources>

@@ -1,11 +1,10 @@
-package me.muchori.joseph.android_mvvm_login.ui
+package me.muchori.joseph.android_mvvm_login.ui.fragments.home
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.PopupMenu
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
-import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.fragment.NavHostFragment
 import me.muchori.joseph.android_mvvm_login.R
 import me.muchori.joseph.android_mvvm_login.databinding.ActivityHomeBinding
 
@@ -17,8 +16,11 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        navController = findNavController(R.id.main_fragment)
-        setupActionBarWithNavController(navController)
+
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.main_fragment) as NavHostFragment
+        navController = navHostFragment.navController
+        setSupportActionBar(binding.toolbar)
         setupSmoothBottomMenu()
     }
     private fun setupSmoothBottomMenu() {

@@ -2,23 +2,28 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/homeFragment"
-        android:icon="@drawable/ic_grid"
-        android:title="Home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home"
         android:checked="true"
         android:color="@color/home" />
     <item
         android:id="@+id/dropPointsFragment"
-        android:icon="@drawable/ic_clock"
+        android:color="@color/logger"
         android:title="Drop Points"
-        android:color="@color/logger" />
+        android:icon="@drawable/ic_search" />
     <item
         android:id="@+id/walletFragment"
-        android:icon="@drawable/ic_folder"
+        android:icon="@drawable/ic_locate"
         android:color="@color/documents"
         android:title="Documents" />
     <item
+        android:id="@+id/documentsFragment"
+        android:color="@color/settings"
+        android:icon="@drawable/ic_document"
+        android:title="Settings" />
+    <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_android_black_24dp_rotated"
+        android:icon="@drawable/ic_profile"
         android:color="@color/settings"
         android:title="Settings" />
 </menu>
