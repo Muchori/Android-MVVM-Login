@@ -1,6 +1,7 @@
 package me.muchori.joseph.android_mvvm_login.ui.fragments.profile
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,10 +25,14 @@ class PersonalDataFragment : Fragment() {
 
         dataRepository = ProtoDataStoreRepository(requireContext())
         val userData = runBlocking { dataRepository.readProto.first() }
+        Log.d("UserDetails", userData.toString())
 
         binding!!.editTextUserName.setText(userData.firstName + " " + userData.lastName)
         binding!!.editTextEmail.setText(userData.email)
         binding!!.editTextPhone.setText(userData.phone)
+        binding!!.editTextGender.setText(userData.gender)
+        binding!!.editTextUserType.setText(userData.userType)
+
         return binding!!.root
     }
 }

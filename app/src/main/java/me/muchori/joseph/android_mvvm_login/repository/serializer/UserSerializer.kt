@@ -15,7 +15,6 @@ class UserSerializer : Serializer<UserDetails> {
             throw CorruptionException("Cannot read proto", exception)
         }
     }
-
     override fun writeTo(t: UserDetails, output: OutputStream) {
         t.writeTo(output)
     }

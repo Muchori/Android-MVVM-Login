@@ -12,6 +12,8 @@ data class UserX(
     val email: String,
     @SerializedName("first_name")
     val firstName: String,
+    @SerializedName("gender")
+    val gender: String,
     @SerializedName("id")
     val id: String,
     @SerializedName("last_name")
@@ -21,5 +23,7 @@ data class UserX(
     @SerializedName("phone")
     val phone: String,
     @SerializedName("updatedAt")
-    val updatedAt: String
+    val updatedAt: String,
+    @SerializedName("user_type")
+    val userType: String
 )

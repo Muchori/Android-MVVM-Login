@@ -11,8 +11,6 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import me.muchori.joseph.android_mvvm_login.model.user.User
-import me.muchori.joseph.android_mvvm_login.network.api.LoginApi
-import me.muchori.joseph.android_mvvm_login.network.retrofit.WebServiceClient
 import me.muchori.joseph.android_mvvm_login.repository.userRepository.DataStoreRepository
 import me.muchori.joseph.android_mvvm_login.repository.userRepository.ProtoDataStoreRepository
 import me.muchori.joseph.android_mvvm_login.util.SingleLiveEvent
@@ -46,8 +44,8 @@ class LoginViewModel(
     }
 
     fun updateUserDetails(user: User) = viewModelScope.launch(Dispatchers.IO) {
-        protoRepository.loginUpdateUserDetails(user)
-        Log.d("ProtoDataStore", user.toString())
+//        protoRepository.loginUpdateUserDetails(user)
+//        Log.d("ProtoDataStore", user.toString())
     }
 
     fun saveRefreshToken(refresh_token: String) = viewModelScope.launch(Dispatchers.IO) {
@@ -59,34 +57,35 @@ class LoginViewModel(
     }
 
     fun onEmailChanged(s: CharSequence, start: Int, befor: Int, count: Int) {
-        btnSelected?.set(Util.isEmailValid(s.toString()) && password?.get()!!.length >= 4)
+        btnSelected!!.set(Util.isEmailValid(s.toString()) && password!!.get()!!.length >= 4)
     }
 
     fun onPasswordChanged(s: CharSequence, start: Int, befor: Int, count: Int) {
-        btnSelected?.set(Util.isEmailValid(email?.get()!!) && s.toString().length >= 4)
+        btnSelected!!.set(Util.isEmailValid(email!!.get()!!) && s.toString().length >= 4)
     }
 
-    fun login() {
-        progressDialog?.value = true
-        WebServiceClient.client.create(LoginApi::class.java)
-            .login(email = email?.get()!!, password = password?.get()!!)
-            .enqueue(this)
-    }
+//    fun login() {
+//        progressDialog?.value = true
+//        WebServiceClient.client.create(LoginApi::class.java)
+//            .login(email = email!!.get()!!, password = password!!.get()!!)
+//            .enqueue(this)
+//    }
 
     override fun onResponse(call: Call<User>?, response: Response<User>?) {
-        progressDialog?.value = false
-        if(response!!.isSuccessful){
+        progressDialog!!.value = false
+        if (response!!.isSuccessful) {
             try {
                 userLogin?.value = response.body()
                 Log.d("ResponseBody ", response.body().toString())
-            }
-            catch (e: Exception){
+            } catch (e: Exception) {
+                throw e
             }
         } else{
+
         }
     }
 
     override fun onFailure(call: Call<User>?, t: Throwable?) {
-        progressDialog?.value = false
+        progressDialog!!.value = false
     }
 }

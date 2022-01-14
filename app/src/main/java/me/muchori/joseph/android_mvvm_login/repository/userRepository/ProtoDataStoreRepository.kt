@@ -35,9 +35,19 @@ class ProtoDataStoreRepository(context: Context) {
                 .setLastName(user.data.user.lastName)
                 .setEmail(user.data.user.email)
                 .setPhone(user.data.user.phone)
+                .setGender(user.data.user.gender)
+                .setUserType(user.data.user.userType)
                 .setAccessToken(user.data.payload.accessToken)
                 .setRefreshToken(user.data.payload.refreshToken)
                 .build()
         }
     }
+
+//    suspend fun clear(){
+//        dataStore.updateData { preference ->
+//            preference.toBuilder()
+//                .clear()
+//                .build()
+//        }
+//    }
 }

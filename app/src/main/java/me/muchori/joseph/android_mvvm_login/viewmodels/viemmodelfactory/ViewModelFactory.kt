@@ -3,22 +3,17 @@ package me.muchori.joseph.android_mvvm_login.viewmodels.viemmodelfactory
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.UserRepository
-import me.muchori.joseph.android_mvvm_login.viewmodels.profile.HomeViewModel
-import me.muchori.joseph.android_mvvm_login.viewmodels.profile.ProfileViewModel
+import me.muchori.joseph.android_mvvm_login.repository.userRepository.AuthRepository
+import me.muchori.joseph.android_mvvm_login.viewmodels.auth.AuthViewModel
 
 class ViewModelFactory(
-    private val repository: UserRepository
+    private val repository: AuthRepository
 ): ViewModelProvider.Factory{
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         return when {
-            modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
-                HomeViewModel(repository) as T
+            modelClass.isAssignableFrom(AuthViewModel::class.java) -> {
+                AuthViewModel(repository, application = Application()) as T
             }
-            modelClass.isAssignableFrom(ProfileViewModel::class.java) -> {
-                ProfileViewModel(application = Application()) as T
-            }
-//            HomeViewModel(repository) as T
             else -> {
                 throw IllegalArgumentException("ViewModel Not Found")
             }
