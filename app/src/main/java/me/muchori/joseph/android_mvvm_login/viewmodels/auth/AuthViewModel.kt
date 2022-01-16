@@ -1,14 +1,15 @@
 package me.muchori.joseph.android_mvvm_login.viewmodels.auth
 
 import android.app.Application
-import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import me.muchori.joseph.android_mvvm_login.data.network.NetworkResponse
+import me.muchori.joseph.android_mvvm_login.data.network.api.UserApi
+import me.muchori.joseph.android_mvvm_login.data.repository.userRepository.AuthRepository
 import me.muchori.joseph.android_mvvm_login.model.user.User
-import me.muchori.joseph.android_mvvm_login.network.NetworkResponse
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.AuthRepository
 import retrofit2.Response
 
 class AuthViewModel(
@@ -16,22 +17,11 @@ class AuthViewModel(
     application: Application
 ) : AndroidViewModel(application) {
 
-//    private val dataRepository = ProtoDataStoreRepository(application)
-
     var loginResponse: MutableLiveData<NetworkResponse<User>> = MutableLiveData()
 
-//    fun updateUserDetails(user: User) = viewModelScope.launch(Dispatchers.IO) {
-//        try {
-//            repository.updateUserDetails(user)
-//            Log.d("ProtoDataStore", user.toString())
-//        } catch (t: Throwable){
-//            throw  t
-//        }
-//    }
-
-//    fun clear() = viewModelScope.launch {
-//        dataRepository.clear()
-//    }
+    private fun updateUserDetails(user: User) = viewModelScope.launch(Dispatchers.IO) {
+        repository.updateUserDetails(user)
+    }
 
     fun loginUser(email: String, password: String) = viewModelScope.launch {
         userLoginSafeCal(email, password)
@@ -42,31 +32,33 @@ class AuthViewModel(
         try {
             val response = repository.userLogin(email, password)
             loginResponse.value = handleUserLoginResponse(response)
+
+            val userData = loginResponse.value!!.data
+            if (userData != null) {
+                updateUserDetails(userData)
+            }
         } catch (e: Exception) {
             loginResponse.value = NetworkResponse.Error("User not found")
         }
     }
 
     private fun handleUserLoginResponse(response: Response<User>): NetworkResponse<User>? {
-        when {
+        return when {
             response.message().toString().contains("timeout") -> {
-                return NetworkResponse.Error("Timeout")
+                NetworkResponse.Error("Timeout")
             }
-            response.code() == 402 -> {
-                return NetworkResponse.Error("Api is limited")
+            response.code() == 403 -> {
+                NetworkResponse.Error("Api is limited")
             }
             response.isSuccessful -> {
-                try {
-                    val user = response.body()
-                    Log.d("ResponseBody ", user.toString())
-                    return NetworkResponse.Success(user!!)
-                } catch (e: Exception) {
-                    throw e
-                }
+                val user = response.body()
+                NetworkResponse.Success(user!!)
             }
             else -> {
-                return NetworkResponse.Error(response.message())
+                NetworkResponse.Error(response.message())
             }
         }
     }
+
+    suspend fun logout(userApi: UserApi) = repository.logout(userApi)
 }

@@ -42,11 +42,10 @@
             android:id="@+id/action_documentsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
     </fragment>
-
     <fragment
         android:id="@+id/profileFragment"
         android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.profile.ProfileFragment"
-        android:label="Profile"
+        android:label="ProfileFragment"
         tools:layout="@layout/fragment_profile">
         <action
             android:id="@+id/action_profileFragment_to_personalDataFragment"
@@ -56,4 +55,5 @@
         android:id="@+id/personalDataFragment"
         android:name="me.muchori.joseph.android_mvvm_login.ui.fragments.profile.PersonalDataFragment"
         android:label="PersonalDataFragment" />
+
 </navigation>

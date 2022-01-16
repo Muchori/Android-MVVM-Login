@@ -99,7 +99,7 @@
                 android:fontFamily="@font/roboto_bold"
                 android:gravity="center"
                 android:padding="15dp"
-                android:text="Send OTP"
+                android:text="Verify OTP"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
                 app:layout_constraintEnd_toEndOf="parent"

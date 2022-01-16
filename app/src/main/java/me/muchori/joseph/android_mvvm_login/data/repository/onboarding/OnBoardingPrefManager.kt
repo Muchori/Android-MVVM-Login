@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.repository.onboarding
+package me.muchori.joseph.android_mvvm_login.data.repository.onboarding
 
 import android.content.Context
 import android.content.SharedPreferences
@@ -16,13 +16,27 @@ class OnBoardingPrefManager(
         editor.commit()
     }
 
+    fun put(key: String, value: String) {
+        editor.putString(key, value).apply()
+    }
+
+    fun getString(key: String): String? {
+        return pref.getString(key, null)
+    }
+
+    fun put(key: String, value: Boolean) {
+        editor.putBoolean(key, value).apply()
+    }
+
+    fun getBoolean(key: String): Boolean? {
+        return pref.getBoolean(key, false)
+    }
+
     fun isFirstTimeLaunch(): Boolean = pref.getBoolean(IS_FIRST_TIME_LAUNCH, true)
 
 
     companion object {
-        private const val ONBOARD_KEY = "onBoard"
-        private const val PRIVATE_MODE = 0
-        private const val PREF_NAME = "app-prefs"
-        private const val IS_FIRST_TIME_LAUNCH = "isFirstTimeLaunch"
+        const val PREF_NAME = "app-prefs"
+        const val IS_FIRST_TIME_LAUNCH = "isFirstTimeLaunch"
     }
 }

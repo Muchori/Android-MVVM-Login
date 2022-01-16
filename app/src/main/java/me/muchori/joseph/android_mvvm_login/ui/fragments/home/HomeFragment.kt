@@ -6,12 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import me.muchori.joseph.android_mvvm_login.data.network.api.UserApi
+import me.muchori.joseph.android_mvvm_login.data.network.retrofit.RetrofitInstance
+import me.muchori.joseph.android_mvvm_login.data.repository.userRepository.DataStoreRepository
+import me.muchori.joseph.android_mvvm_login.data.repository.userRepository.ProtoDataStoreRepository
+import me.muchori.joseph.android_mvvm_login.data.repository.userRepository.UserRepository
 import me.muchori.joseph.android_mvvm_login.databinding.FragmentHomeBinding
-import me.muchori.joseph.android_mvvm_login.network.api.UserApi
-import me.muchori.joseph.android_mvvm_login.network.retrofit.RetrofitInstance
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.DataStoreRepository
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.ProtoDataStoreRepository
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.UserRepository
 import me.muchori.joseph.android_mvvm_login.viewmodels.profile.HomeViewModel
 import me.muchori.joseph.android_mvvm_login.viewmodels.profile.ProfileViewModel
 import me.muchori.joseph.android_mvvm_login.viewmodels.viemmodelfactory.HomeViewModelFactory

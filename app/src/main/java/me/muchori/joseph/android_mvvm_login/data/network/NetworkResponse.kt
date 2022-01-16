@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.network
+package me.muchori.joseph.android_mvvm_login.data.network
 
 sealed class NetworkResponse<T>(
     val data: T? = null,

@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.repository.userRepository
+package me.muchori.joseph.android_mvvm_login.data.repository.userRepository
 
 import android.content.Context
 import android.util.Log
@@ -7,8 +7,8 @@ import androidx.datastore.createDataStore
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch
 import me.muchori.joseph.android_mvvm_login.UserDetails
+import me.muchori.joseph.android_mvvm_login.data.repository.serializer.UserSerializer
 import me.muchori.joseph.android_mvvm_login.model.user.User
-import me.muchori.joseph.android_mvvm_login.repository.serializer.UserSerializer
 import java.io.IOException
 
 class ProtoDataStoreRepository(context: Context) {
@@ -43,11 +43,11 @@ class ProtoDataStoreRepository(context: Context) {
         }
     }
 
-//    suspend fun clear(){
-//        dataStore.updateData { preference ->
-//            preference.toBuilder()
-//                .clear()
-//                .build()
-//        }
-//    }
+    suspend fun clear() {
+        dataStore.updateData { preference ->
+            preference.toBuilder()
+                .clear()
+                .build()
+        }
+    }
 }

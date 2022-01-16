@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.network.api
+package me.muchori.joseph.android_mvvm_login.data.network.api
 
 import me.muchori.joseph.android_mvvm_login.model.user.UserX
 import retrofit2.Response

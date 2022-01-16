@@ -1,4 +1,4 @@
-package me.muchori.joseph.android_mvvm_login.repository.serializer
+package me.muchori.joseph.android_mvvm_login.data.repository.serializer
 
 import androidx.datastore.CorruptionException
 import androidx.datastore.Serializer

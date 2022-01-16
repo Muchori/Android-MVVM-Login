@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import kotlinx.android.synthetic.main.onboarding_view.*
 import me.muchori.joseph.android_mvvm_login.R
-import me.muchori.joseph.android_mvvm_login.repository.onboarding.OnBoardingPrefManager
 import me.muchori.joseph.android_mvvm_login.ui.MainActivity
 import me.muchori.joseph.android_mvvm_login.viewmodels.SplashViewModel
 
@@ -32,7 +31,7 @@ class OnBoardingActivity : AppCompatActivity() {
     }
 
     private fun navigateToMain() {
-        OnBoardingPrefManager(this).setFirstTimeLaunch(false)
+
         startActivity(Intent(this, MainActivity::class.java))
         finish()
     }

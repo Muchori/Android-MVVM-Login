@@ -3,7 +3,7 @@ package me.muchori.joseph.android_mvvm_login.viewmodels.viemmodelfactory
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import me.muchori.joseph.android_mvvm_login.repository.userRepository.AuthRepository
+import me.muchori.joseph.android_mvvm_login.data.repository.userRepository.AuthRepository
 import me.muchori.joseph.android_mvvm_login.viewmodels.auth.AuthViewModel
 
 class ViewModelFactory(

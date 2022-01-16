@@ -10,7 +10,7 @@ import com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
 import kotlinx.android.synthetic.main.onboarding_view.view.*
 import me.muchori.joseph.android_mvvm_login.R
 import me.muchori.joseph.android_mvvm_login.adapters.OnBoardingPagerAdapter
-import me.muchori.joseph.android_mvvm_login.repository.onboarding.OnBoardingPrefManager
+import me.muchori.joseph.android_mvvm_login.data.repository.onboarding.OnBoardingPrefManager
 import me.muchori.joseph.android_mvvm_login.ui.onboarding.core.setParallaxTransformation
 import me.muchori.joseph.android_mvvm_login.ui.onboarding.entity.OnBoardingPage
 
