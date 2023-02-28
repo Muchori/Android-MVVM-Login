@@ -63,7 +63,7 @@ dependencies {
     implementation "com.tbuonomo.andrui:viewpagerdotsindicator:4.1.2"
 
     //pinview otp
-    implementation 'com.github.GoodieBag:Pinview:v1.4'
+    implementation 'com.github.GoodieBag:Pinview:1.4'
 
     //logging interceptors
     implementation "com.squareup.okhttp3:logging-interceptor:4.9.3"
